@@ -29,13 +29,6 @@
   <!-- musik autoplay -->
 <audio id="bg-music" src="hindia-ramai-sepi.mp3" autoplay loop muted></audio>
 
-<script>
-  window.addEventListener('click', function () {
-    const audio = document.getElementById('bg-music');
-    audio.muted = false;
-    audio.play();
-  }, { once: true });
-</script>
 
   <!-- buku -->
   <div id="flipbook">
@@ -57,6 +50,11 @@
         autoCenter: true
       });
     });
+      window.addEventListener('click', function () {
+    const audio = document.getElementById('bg-music');
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
   </script>
 
 </body>
