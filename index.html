@@ -1,60 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HBD Rembulann</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
+  <title>flipbook hbd rembulan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- style flipbook -->
   <style>
-    body {
-      background: #ddd;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+    html, body { margin:0; padding:0; height:100%; background:#333; }
+    #flipbook { width: 800px; height: 600px; margin: 40px auto; }
+    #flipbook .page {
+      width: 400px; height:600px;
+      background: white;
+      box-shadow: 0 0 5px rgba(0,0,0,.5);
     }
-    #flipbook {
-      width: 800px;
-      height: 500px;
+    #flipbook .hard {
+      background: #222;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      line-height: 600px;
     }
-    .page img {
+    #flipbook img {
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
     }
   </style>
 </head>
 <body>
-  <!-- musik autoplay -->
-<audio id="bg-music" src="Hindia-Ramai-Sepi-Bersama.mp3" autoplay loop></audio>
 
+  <!-- musik latar (auto-play, loop, hidden) -->
+  <audio id="bgm" src="Hindia-Ramai-Sepi-Bersama.mp3" loop autoplay></audio>
 
-  <!-- buku -->
+  <!-- struktur flipbook -->
   <div id="flipbook">
-    <div class="page"><img src="design-delan-hbd-01-04.png"></div>
-    <div class="page"><img src="design-delan-hbd-01-02.png"></div>
-    <div class="page"><img src="api-matii-01.png"></div>
-    <div class="page"><img src="design-delan-hbd-01-03.png"></div>
-    <div class="page"><img src="design-delan-hbd-02-01.png"></div>
-    <div class="page"><img src="design-delan-hbd-01.png"></div>
-    <div class="page"><img src="maaf-gaada-design-lagii-supaya-lebih-seriuss-page-0001.jpg"></div>
-    <div class="page"><img src="design-delan-hbd-penutup.png"></div> <!-- ini buat genapin halaman -->
+    <div class="hard">cover depan</div>
+    <div class="page">
+      <img src="design-delan-hbd-01.png" alt="halaman 1">
+    </div>
+    <div class="page">
+      <img src="design-delan-hbd-01-01.png" alt="halaman 2">
+    </div>
+    <div class="page">
+      <img src="design-delan-hbd-01-02.png" alt="halaman 3">
+    </div>
+    <div class="page">
+      <img src="design-delan-hbd-01-03.png" alt="halaman 4">
+    </div>
+    <div class="page">
+      <img src="design-delan-hbd-01-04.png" alt="halaman 5">
+    </div>
+    <div class="page">
+      <img src="api-matii-01.png" alt="halaman 6">
+    </div>
+    <div class="page">
+      <img src="Untitled-3-01.png" alt="halaman 7">
+    </div>
+    <div class="page">
+      <img src="maaf-gaada-design-lagii-supaya-lebih-seriuss-page-0001.jpg" alt="halaman 8">
+    </div>
+    <div class="hard">cover belakang</div>
   </div>
 
+  <!-- jquery dari CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- turn.js dari CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
+
+  <!-- inisialisasi flipbook -->
   <script>
-    $(document).ready(function() {
-      $("#flipbook").turn({
+    $(function() {
+      $('#flipbook').turn({
         width: 800,
-        height: 500,
-        autoCenter: true
+        height: 600,
+        autoCenter: true,
+        gradients: true,
+        elevation: 50
       });
     });
-      window.addEventListener('click', function () {
-    const audio = document.getElementById('bg-music');
-    audio.muted = false;
-    audio.play();
-  }, { once: true });
   </script>
 
 </body>
