@@ -27,8 +27,15 @@
 </head>
 <body>
   <!-- musik autoplay -->
-  <audio id="bg-music" src="hindia-ramai-sepi.mp3" loop></audio>
-  <button onclick="document.getElementById('bg-music').play()">▶️ Play Music</button>
+<audio id="bg-music" src="hindia-ramai-sepi.mp3" autoplay loop muted></audio>
+
+<script>
+  window.addEventListener('click', function () {
+    const audio = document.getElementById('bg-music');
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
+</script>
 
   <!-- buku -->
   <div id="flipbook">
